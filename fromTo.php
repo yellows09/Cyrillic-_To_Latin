@@ -16,14 +16,14 @@ $word = 'приВет!!';
 
 function tr($word,$alfabet){
     $result = '';
-    for($i=0;$i<mb_strlen($word);$i++){
-        $letter = mb_substr($word, $i, 1);
-        $smalLetter = mb_strtolower($letter);
-        if(isset($alfabet[$smalLetter])) {
-            if($smalLetter == $letter) {
-                $result .= $alfabet[$letter];
+    for($i=0;$i<mb_strlen($word);$i++){ // count sym $word
+        $letter = mb_substr($word, $i, 1); // goes through every element
+        $smalLetter = mb_strtolower($letter); // turn it to small
+        if(isset($alfabet[$smalLetter])) { // if letter exist
+            if($smalLetter == $letter) { // or it was a small letter
+                $result .= $alfabet[$letter]; // assign it to $resuly
             }else{
-                $result .= ucfirst($alfabet[$smalLetter]);
+                $result .= ucfirst($alfabet[$smalLetter]); 
             }
         }else{
             $result = $result . $letter;
